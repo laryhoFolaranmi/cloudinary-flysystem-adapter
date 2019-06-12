@@ -351,10 +351,17 @@ class CloudinaryAdapter implements AdapterInterface
     }
 
     /**
-     * getUrl method needed for laravel filesystems to work.
-     * @return mixed
+     * Get the URL of an image with optional transformation parameters
+     *
+     * @param  string|array $path
+     * @return string
      */
-    public function getUrl(){
-        return config("app.cloudinary_url");
+    public function getUrl($path)
+    {
+        if (is_array($path)) {
+            return cloudinary_url($path['public_id'], $path['options']);
+        }
+        return cloudinary_url($path);
+
     }
 }
