@@ -33,7 +33,7 @@ class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
     {
         Cloudinary::config($options);
         $this->api = new Api;
-        $this->setPathPrefix($this->getUrl("/"));
+        $this->setPathPrefix($this->getUrl(""));
 
     }
     /**
