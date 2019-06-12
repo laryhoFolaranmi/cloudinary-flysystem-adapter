@@ -32,7 +32,7 @@ class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
     public function __construct(array $options)
     {
         Cloudinary::config($options);
-        $this->setPathPrefix("http://res.cloudinary.com/drvcg5svu/image/upload");
+        $this->setPathPrefix($this->getUrl("/"));
         $this->api = new Api;
     }
     /**
