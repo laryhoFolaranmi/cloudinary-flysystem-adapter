@@ -8,11 +8,12 @@ use Cloudinary\Api as Api;
 use Cloudinary\Uploader;
 use League\Flysystem\Config;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
 /**
  *
  */
-class CloudinaryAdapter implements AdapterInterface
+class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
 {
     /**
      * @var Cloudinary\Api
@@ -22,11 +23,11 @@ class CloudinaryAdapter implements AdapterInterface
      * Cloudinary does not suppory visibility - all is public
      */
     use NotSupportingVisibilityTrait;
+
     /**
      * Constructor
      * Sets configuration, and dependency Cloudinary Api.
      * @param array $options Cloudinary configuration
-     * @param Api   $api    Cloudinary Api instance
      */
     public function __construct(array $options)
     {
@@ -149,6 +150,7 @@ class CloudinaryAdapter implements AdapterInterface
         $result = Uploader::destroy($path, ['invalidate' => true]);
         return is_array($result) ? $result['result'] == 'ok' : false;
     }
+
     /**
      * Delete a directory.
      * Delete Files using directory as a prefix.
@@ -156,6 +158,7 @@ class CloudinaryAdapter implements AdapterInterface
      * @param string $dirname
      *
      * @return bool
+     * @throws Api\GeneralError
      */
     public function deleteDir($dirname)
     {
@@ -226,13 +229,14 @@ class CloudinaryAdapter implements AdapterInterface
         }
         return compact('stream', 'path');
     }
+
     /**
      * List contents of a directory.
      *
      * @param string $directory
-     * @param bool   $recursive
-     *
+     * @param bool $hasRecursive
      * @return array
+     * @throws Api\GeneralError
      */
     public function listContents($directory = '', $hasRecursive = false)
     {
@@ -247,37 +251,44 @@ class CloudinaryAdapter implements AdapterInterface
         }
         return $resources;
     }
+
     /**
      * Get all the meta data of a file or directory.
      *
      * @param string $path
      *
      * @return array|false
+     * @throws Api\GeneralError
      */
     public function getMetadata($path)
     {
         return $this->prepareResourceMetadata($this->getResource($path));
     }
+
     /**
      * Get Resource data
      * @param  string $path
      * @return array
+     * @throws Api\GeneralError
      */
     public function getResource($path)
     {
         return (array) $this->api->resource($path);
     }
+
     /**
      * Get all the meta data of a file or directory.
      *
      * @param string $path
      *
      * @return array|false
+     * @throws Api\GeneralError
      */
     public function getSize($path)
     {
         return $this->prepareSize($this->getResource($path));
     }
+
     /**
      * Get the mimetype of a file.
      * Actually I don't think cloudinary supports mimetypes.
@@ -287,17 +298,20 @@ class CloudinaryAdapter implements AdapterInterface
      * @param string $path
      *
      * @return array|false
+     * @throws Api\GeneralError
      */
     public function getMimetype($path)
     {
         return $this->prepareMimetype($this->getResource($path));
     }
+
     /**
      * Get the timestamp of a file.
      *
      * @param string $path
      *
      * @return array|false
+     * @throws Api\GeneralError
      */
     public function getTimestamp($path)
     {
@@ -364,4 +378,5 @@ class CloudinaryAdapter implements AdapterInterface
         return cloudinary_url($path);
 
     }
+
 }
