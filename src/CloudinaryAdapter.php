@@ -349,4 +349,12 @@ class CloudinaryAdapter implements AdapterInterface
         $size = $resource['bytes'];
         return compact('size');
     }
+
+    /**
+     * getUrl method needed for laravel filesystems to work.
+     * @return mixed
+     */
+    public function getUrl(){
+        return config("app.cloudinary_url");
+    }
 }
