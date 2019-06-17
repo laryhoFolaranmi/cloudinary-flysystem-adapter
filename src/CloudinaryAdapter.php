@@ -7,13 +7,12 @@ use Cloudinary;
 use Cloudinary\Api as Api;
 use Cloudinary\Uploader;
 use League\Flysystem\Config;
-use League\Flysystem\AdapterInterface;
 use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
 /**
  *
  */
-class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
+class CloudinaryAdapter extends AbstractAdapter
 {
     /**
      * @var Cloudinary\Api
@@ -34,7 +33,6 @@ class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
         Cloudinary::config($options);
         $this->api = new Api;
         $this->setPathPrefix($this->getUrl(""));
-
     }
     /**
      * Write a new file.
@@ -378,7 +376,6 @@ class CloudinaryAdapter extends AbstractAdapter implements AdapterInterface
             return cloudinary_url($path['public_id'], $path['options']);
         }
         return cloudinary_url($path);
-
     }
 
 }
