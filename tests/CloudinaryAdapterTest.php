@@ -9,7 +9,7 @@
 
 include_once __DIR__ .'/../vendor/autoload.php';
 
-use CarlosOCarvalho\Flysystem\Cloudinary\CloudinaryAdapter as Adapter;
+use TheDarkKid\Flysystem\Cloudinary\CloudinaryAdapter as Adapter;
 
 class CloudinaryAdapterTest extends PHPUnit_Framework_TestCase
 {

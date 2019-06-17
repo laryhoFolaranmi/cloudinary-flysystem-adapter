@@ -1,6 +1,6 @@
 <?php
 
-namespace CarlosOCarvalho\Flysystem\Cloudinary;
+namespace TheDarkKid\Flysystem\Cloudinary;
 
 use Exception;
 use Cloudinary;

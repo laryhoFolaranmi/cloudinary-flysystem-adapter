@@ -1,7 +1,7 @@
 {
-    "name": "carlosocarvalho/flysystem-cloudinary",
-    "version": "dev-1.0.2",
-    "description": "Flysystem adapter for Cloudinary modified by laryhoFolaranmi",
+    "name": "thedarkkid/cloudinary-flysystem",
+    "version": "1.0.0",
+    "description": "Flysystem adapter for Cloudinary",
     "license": "MIT",
     "tags": ["cloudinary", "thephpleague", "adpater"],
     "require": {
@@ -12,8 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "CarlosOCarvalho\\Flysystem\\Cloudinary\\": "src/",
-            "CarlosOCarvalho\\Flysystem\\Cloudinary\\Test\\":"tests/"
+            "TheDarkKid\\Flysystem\\Cloudinary\\": "src/",
+            "TheDarkKid\\Flysystem\\Cloudinary\\Test\\":"tests/"
         }
     },
     "require-dev": {
@@ -22,8 +22,8 @@
 
     },
     "authors": [{
-        "name": "carlosocarvalho",
-        "email": "carlosocarvalho.com.br@gmail.com"
+        "name": "thedarkkid",
+        "email": "laryho18@gmail.com"
     }],
     "minimum-stability": "stable",
     "config": {
