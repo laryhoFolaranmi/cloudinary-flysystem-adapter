@@ -1,6 +1,6 @@
 {
     "name": "thedarkkid/cloudinary-flysystem",
-    "version": "1.0.0",
+    "version": "dev-1.0.0",
     "description": "Flysystem adapter for Cloudinary",
     "license": "MIT",
     "tags": ["cloudinary", "thephpleague", "adpater"],
@@ -25,7 +25,7 @@
         "name": "thedarkkid",
         "email": "laryho18@gmail.com"
     }],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "config": {
         "bin-dir": "bin"
     }
