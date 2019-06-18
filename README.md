@@ -6,7 +6,6 @@ Adapter for theleague php flysystem for Cloudinary, with methods to support Lara
 [![Total Downloads](https://poser.pugx.org/thedarkkid/cloudinary-flysystem/downloads)](https://packagist.org/packages/thedarkkid/cloudinary-flysystem) 
 [![Latest Unstable Version](https://poser.pugx.org/thedarkkid/cloudinary-flysystem/v/unstable)](https://packagist.org/packages/thedarkkid/cloudinary-flysystem) 
 [![License](https://poser.pugx.org/thedarkkid/cloudinary-flysystem/license)](https://packagist.org/packages/thedarkkid/cloudinary-flysystem)
-[![Build Status](https://travis-ci.org/laryhoFolaranmi/cloudinary-flysystem-adapter.svg?branch=master)](https://travis-ci.org/thedarkkid/cloudinary-flysystem)
 
 Install
 
